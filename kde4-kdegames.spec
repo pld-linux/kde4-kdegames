@@ -573,16 +573,16 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 #%doc AUTHORS ChangeLog README README.highscore
 %attr(755,root,root) %{_libdir}/libkdegames.so.*.*.*
-%attr(755,root,root) %{_libdir}/libkdegames.so.?
-%attr(755,root,root) %{_libdir}/libkggzgames.so.?
+%attr(755,root,root) %ghost %{_libdir}/libkdegames.so.?
+%attr(755,root,root) %ghost %{_libdir}/libkggzgames.so.?
 %attr(755,root,root) %{_libdir}/libkggzgames.so.*.*.*
-%attr(755,root,root) %{_libdir}/libkggzmod.so.?
+%attr(755,root,root) %ghost %{_libdir}/libkggzmod.so.?
 %attr(755,root,root) %{_libdir}/libkggzmod.so.*.*.*
-%attr(755,root,root) %{_libdir}/libkggznet.so.?
+%attr(755,root,root) %ghost %{_libdir}/libkggznet.so.?
 %attr(755,root,root) %{_libdir}/libkggznet.so.*.*.*
-%attr(755,root,root) %{_libdir}/libkmahjongglib.so.?
+%attr(755,root,root) %ghost %{_libdir}/libkmahjongglib.so.?
 %attr(755,root,root) %{_libdir}/libkmahjongglib.so.*.*.*
-%attr(755,root,root) %{_libdir}/libkolfprivate.so.?
+%attr(755,root,root) %ghost %{_libdir}/libkolfprivate.so.?
 %attr(755,root,root) %{_libdir}/libkolfprivate.so.*.*.*
 %{_datadir}/apps/kdegames
 %{_iconsdir}/hicolor/scalable/apps/knetwalk.svgz
@@ -660,9 +660,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kbounce
 %{_desktopdir}/kde4/kbounce.desktop
 %{_datadir}/apps/kbounce
-%if %{with highscore}
-%attr(660,root,games) %config(noreplace) %verify(not md5 mtime size) /var/games/kbounce.scores
-%endif
 
 %files kgoldrunner -f kgoldrunner.lang
 %defattr(644,root,root,755)
@@ -704,9 +701,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kmines
 %{_datadir}/config/kmines.knsrc
 %{_iconsdir}/*/*/apps/kmines.png
-%if %{with highscore}
-%attr(660,root,games) %config(noreplace) %verify(not md5 mtime size) /var/games/kmines.scores
-%endif
 
 %files knetwalk
 %defattr(644,root,root,755)
@@ -714,9 +708,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/knetwalk.desktop
 %{_datadir}/apps/knetwalk
 %{_iconsdir}/*/*/apps/knetwalk.png
-%if %{with highscore}
-%attr(660,root,games) %config(noreplace) %verify(not md5 mtime size) /var/games/knetwalk.scores
-%endif
 
 %files kolf -f kolf.lang
 %defattr(644,root,root,755)
@@ -749,9 +740,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/actions/legalmoves.png
 %{_iconsdir}/*/*/actions/lastmoves.png
 %{_iconsdir}/*/*/apps/kreversi.png
-%if %{with highscore}
-%attr(660,root,games) %config(noreplace) %verify(not md5 mtime size) /var/games/kreversi.scores
-%endif
 
 %files ksame -f ksame.lang
 %defattr(644,root,root,755)
