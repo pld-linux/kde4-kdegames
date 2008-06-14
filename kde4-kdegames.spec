@@ -14,21 +14,9 @@ License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 # Source0-md5:	3e44115aacd0529bd3aaa001b74e35de
-BuildRequires:	autoconf
-BuildRequires:	automake
-%{?with_apidocs:BuildRequires:	doxygen}
-%{?with_apidocs:BuildRequires:	graphviz}
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	rpmbuild(macros) >= 1.129
-BuildRequires:	sed >= 4.0
-Requires:	kde4-kdelibs >= %{version}
-Obsoletes:	kdegames-kabalone
-Obsoletes:	kdegames-kjezz
-Obsoletes:	kdegames-kpm
-Obsoletes:	kdegames-megami
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define         _noautoreq      libtool(.*)
 
 %description
 Libraries for kdegames which contain highscore support functions.
@@ -525,13 +513,13 @@ Jogo de cartas Lieutenant Skat para KDE
 %setup -q -n %{orgname}-%{version}
 
 %build
-export QTDIR=%{_prefix}
-mkdir build
+install -d build
 cd build
 %cmake \
-		-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-		-DSYSCONF_INSTALL_DIR=%{_sysconfdir} \
-		../
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-DSYSCONF_INSTALL_DIR=%{_sysconfdir} \
+	../
+
 %{__make}
 
 %install
@@ -543,10 +531,6 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/var/games
 touch $RPM_BUILD_ROOT/var/games/kbounce.scores
-
-%if %{with highscore}
-touch $RPM_BUILD_ROOT/var/games/k{fouleggs,lickety,mines,netwalk,reversi,sirtet}.scores
-%endif
 
 %find_lang bovo		--with-kde
 %find_lang kfourinline	--with-kde
