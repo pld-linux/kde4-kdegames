@@ -603,7 +603,19 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/digits
 %{_includedir}/kgame
 %{_includedir}/highscore
-%{_includedir}/KDE
+%{_includedir}/KDE/KCardDialog
+%{_includedir}/KDE/KChat
+%{_includedir}/KDE/KChatBase
+%{_includedir}/KDE/KChatDialog
+%{_includedir}/KDE/KExtHighscore
+%{_includedir}/KDE/KGame/KGame
+%{_includedir}/KDE/KGrid2D
+%{_includedir}/KDE/KHighscore
+%{_includedir}/KDE/KScoreDialog
+%{_includedir}/KDE/KStandardGameAction
+%{_includedir}/kggzgames
+%{_includedir}/kggzmod
+%{_includedir}/kggznet
 
 %if %{with apidocs}
 %files apidocs
