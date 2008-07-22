@@ -8,12 +8,12 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.0.83
+Version:	4.0.98
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	8f35e27f3b7e20d7332e7d81a28f4fc7
+# Source0-md5:	cdaa3925bef6ca32ff34866d772de1d5
 BuildRequires:	automoc4 >= 0.9.83
 BuildRequires:	cmake
 BuildRequires:	kde4-kdelibs-devel >= %{version}
@@ -511,6 +511,54 @@ punktów. Po 16 ruchach wszystkie karty są rozegrane i gra się kończy.
 %description lskat -l pt_BR.UTF-8
 Jogo de cartas Lieutenant Skat para KDE
 
+%package kblocks
+Summary:        KBlocks
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description kblocks
+KBlocks.
+
+%package kbreakout
+Summary:        KBreakout
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description kbreakout
+KBreakout.
+
+%package kdiamond
+Summary:        KDiamond
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description kdiamond
+KDiamond.
+
+%package kollision
+Summary:        Kollision
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description kollision
+Kollision.
+
+%package ksirk
+Summary:        KSirk
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description ksirk
+KSirk.
+
+%package kubrick
+Summary:        kubrick
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description kubrick
+Kubrick.
+
 %prep
 %setup -q -n %{orgname}-%{version}
 
@@ -561,6 +609,12 @@ touch $RPM_BUILD_ROOT/var/games/kbounce.scores
 %find_lang kspaceduel	--with-kde
 %find_lang ktuberling	--with-kde
 %find_lang lskat	--with-kde
+%find_lang kblocks	--with-kde
+%find_lang kbreakout	--with-kde
+%find_lang kdiamond	--with-kde
+%find_lang kollision	--with-kde
+%find_lang ksirk	--with-kde
+%find_lang kubrick	--with-kde
 
 # Omit apidocs entries
 sed -i 's/.*apidocs.*//' *.lang
@@ -688,12 +742,15 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kbounce
 %{_desktopdir}/kde4/kbounce.desktop
 %{_datadir}/apps/kbounce
+%{_iconsdir}/hicolor/*/*/kbounce.png
+/var/games/kbounce.scores
 
 %files kgoldrunner -f kgoldrunner.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kgoldrunner
 %{_desktopdir}/kde4/KGoldrunner.desktop
 %{_datadir}/apps/kgoldrunner
+%{_datadir}/config/kgoldrunner.knsrc
 %{_iconsdir}/*/*/apps/kgoldrunner.png
 
 %files kjumpingcube -f kjumpingcube.lang
@@ -736,6 +793,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/knetwalk.desktop
 %{_datadir}/apps/knetwalk
 %{_iconsdir}/*/*/apps/knetwalk.png
+%{_kdedocdir}/en/knetwalk
 
 %files kolf -f kolf.lang
 %defattr(644,root,root,755)
@@ -821,3 +879,50 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/lskat.desktop
 %{_datadir}/apps/lskat
 %{_iconsdir}/*/*/apps/lskat.png
+
+
+%files kblocks -f kblocks.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kblocks
+%{_desktopdir}/kde4/kblocks.desktop
+%{_datadir}/apps/kblocks
+%{_datadir}/config.kcfg/kblocks.kcfg
+%{_datadir}/config/kblocks.knsrc
+%{_iconsdir}/*/*/apps/kblocks.png
+
+%files kbreakout -f kbreakout.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kbreakout
+%{_desktopdir}/kde4/kbreakout.desktop
+%{_datadir}/apps/kbreakout
+%{_iconsdir}/*/*/apps/kbreakout.png
+
+%files kdiamond -f kdiamond.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kdiamond
+%{_desktopdir}/kde4/kdiamond.desktop
+%{_datadir}/apps/kdiamond
+%{_datadir}/config/kdiamond.knsrc
+%{_iconsdir}/*/*/apps/kdiamond.png
+
+%files kollision -f kollision.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kollision
+%{_desktopdir}/kde4/kollision.desktop
+%{_datadir}/apps/kollision
+%{_iconsdir}/*/*/apps/kollision.png
+
+%files ksirk -f ksirk.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/ksirk
+%{_desktopdir}/kde4/ksirk.desktop
+%{_datadir}/apps/ksirk
+%{_datadir}/config.kcfg/ksirksettings.kcfg
+%{_iconsdir}/*/*/apps/ksirk.png
+
+%files kubrick -f kubrick.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kubrick
+%{_desktopdir}/kde4/kubrick.desktop
+%{_datadir}/apps/kubrick
+%{_iconsdir}/*/*/apps/kubrick.png
