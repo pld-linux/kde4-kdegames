@@ -1,5 +1,6 @@
-%define		_state		stable
+%define		_state		unstable
 %define		orgname		kdegames
+%define		qtver		4.4.1
 Summary:	K Desktop Environment - games
 Summary(es.UTF-8):	K Desktop Environment - Juegos
 Summary(ja.UTF-8):	KDEデスクトップ環境 - ゲーム
@@ -8,12 +9,12 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.1.0
+Version:	4.1.67
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	2c0a4c089bf31ff9bd3133c3f58c4dc7
+# Source0-md5:	ee3249181232fcbaaacf027b17fbf020
 BuildRequires:	automoc4 >= 0.9.83
 BuildRequires:	cmake
 BuildRequires:	kde4-kdelibs-devel >= %{version}
@@ -512,7 +513,7 @@ punktów. Po 16 ruchach wszystkie karty są rozegrane i gra się kończy.
 Jogo de cartas Lieutenant Skat para KDE
 
 %package kblocks
-Summary:        KBlocks
+Summary:	KBlocks
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
 
@@ -520,7 +521,7 @@ Requires:	%{name} = %{version}-%{release}
 KBlocks.
 
 %package kbreakout
-Summary:        KBreakout
+Summary:	KBreakout
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
 
@@ -528,7 +529,7 @@ Requires:	%{name} = %{version}-%{release}
 KBreakout.
 
 %package kdiamond
-Summary:        KDiamond
+Summary:	KDiamond
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
 
@@ -536,7 +537,7 @@ Requires:	%{name} = %{version}-%{release}
 KDiamond.
 
 %package kollision
-Summary:        Kollision
+Summary:	Kollision
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
 
@@ -544,7 +545,7 @@ Requires:	%{name} = %{version}-%{release}
 Kollision.
 
 %package ksirk
-Summary:        KSirk
+Summary:	KSirk
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
 
@@ -552,7 +553,7 @@ Requires:	%{name} = %{version}-%{release}
 KSirk.
 
 %package kubrick
-Summary:        kubrick
+Summary:	kubrick
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
 
@@ -904,6 +905,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kdiamond
 %{_datadir}/config/kdiamond.knsrc
 %{_iconsdir}/*/*/apps/kdiamond.png
+%{_iconsdir}/hicolor/scalable/apps/kdiamond.svgz
+%{_datadir}/sounds/KDiamond-Stone-Drop.ogg
+%{_datadir}/sounds/KDiamond-Stone-Swap.ogg
+%{_datadir}/sounds/KDiamond-Stone-Touch.ogg
 
 %files kollision -f kollision.lang
 %defattr(644,root,root,755)
@@ -915,10 +920,17 @@ rm -rf $RPM_BUILD_ROOT
 %files ksirk -f ksirk.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ksirk
+%attr(755,root,root) %{_bindir}/ksirkskineditor
 %{_desktopdir}/kde4/ksirk.desktop
 %{_datadir}/apps/ksirk
 %{_datadir}/config.kcfg/ksirksettings.kcfg
 %{_iconsdir}/*/*/apps/ksirk.png
+%{_desktopdir}/kde4/ksirkskineditor.desktop
+%{_datadir}/apps/ksirkskineditor/cross.png
+%{_datadir}/apps/ksirkskineditor/ksirkskineditorui.rc
+%{_datadir}/apps/ksirkskineditor/target.png
+%{_datadir}/config.kcfg/ksirkskineditorsettings.kcfg
+%{_datadir}/config/ksirk.knsrc
 
 %files kubrick -f kubrick.lang
 %defattr(644,root,root,755)
