@@ -62,7 +62,7 @@ Summary:	bovo
 Summary(pl.UTF-8):	bovo
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
-Requires:	kde4-kdebase-core >= %{version}
+Requires:	kde4-kdebase >= %{version}
 
 %description bovo
 bovo.
@@ -91,7 +91,7 @@ Summary:	kfourinline
 Summary(pl.UTF-8):	kfourinline
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
-Requires:	kde4-kdebase-core >= %{version}
+Requires:	kde4-kdebase >= %{version}
 
 %description kfourinline
 kfourinline.
