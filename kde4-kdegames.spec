@@ -561,6 +561,22 @@ Requires:	%{name} = %{version}-%{release}
 %description kubrick
 Kubrick.
 
+%package kapman
+Summary:	kapman
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description kapman
+Kapman.
+
+%package killbots
+Summary:	killbots
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description killbots
+Killbots.
+
 %prep
 %setup -q -n %{orgname}-%{version}
 
@@ -617,6 +633,8 @@ touch $RPM_BUILD_ROOT/var/games/kbounce.scores
 %find_lang kollision	--with-kde
 %find_lang ksirk	--with-kde
 %find_lang kubrick	--with-kde
+%find_lang kapman	--with-kde
+%find_lang killbots	--with-kde
 
 # Omit apidocs entries
 sed -i 's/.*apidocs.*//' *.lang
@@ -657,6 +675,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkggznet.so
 %attr(755,root,root) %{_libdir}/libiris_ksirk.so
 %attr(755,root,root) %{_libdir}/libkolfprivate.so
+%{_datadir}/apps/cmake/modules/FindLibKDEGames.cmake
+%{_datadir}/apps/cmake/modules/GGZ.cmake
 %{_includedir}/*.h
 %{_includedir}/digits
 %{_includedir}/kgame
@@ -728,7 +748,6 @@ rm -rf $RPM_BUILD_ROOT
 %files kbattleship -f kbattleship.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kbattleship
-%{_datadir}/apps/kbattleship/kbattleshipui.rc
 %{_desktopdir}/kde4/kbattleship.desktop
 %{_datadir}/apps/kbattleship
 %{_iconsdir}/*/*/apps/kbattleship.png
@@ -917,6 +936,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kollision.desktop
 %{_datadir}/apps/kollision
 %{_iconsdir}/*/*/apps/kollision.png
+%{_iconsdir}/oxygen/scalable/apps/kollision.svgz
 
 %files ksirk -f ksirk.lang
 %defattr(644,root,root,755)
@@ -939,3 +959,20 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kubrick.desktop
 %{_datadir}/apps/kubrick
 %{_iconsdir}/*/*/apps/kubrick.png
+
+%files kapman -f kapman.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kapman
+%{_desktopdir}/kde4/kapman.desktop
+%{_datadir}/apps/kapman
+%{_datadir}/sounds/kapman
+#%{_iconsdir}/*/*/apps/kapman.png
+%{_iconsdir}/hicolor/scalable/apps/kapman.svgz
+
+%files killbots -f killbots.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/killbots
+%{_desktopdir}/kde4/killbots.desktop
+%{_datadir}/config.kcfg/killbots.kcfg
+%{_datadir}/apps/killbots
+%{_iconsdir}/*/*/apps/killbots.png
