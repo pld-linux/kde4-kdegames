@@ -1,6 +1,6 @@
 %define		_state		unstable
 %define		orgname		kdegames
-%define		qtver		4.4.1
+%define		qtver		4.4.3
 Summary:	K Desktop Environment - games
 Summary(es.UTF-8):	K Desktop Environment - Juegos
 Summary(ja.UTF-8):	KDEデスクトップ環境 - ゲーム
@@ -9,14 +9,14 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.1.67
-Release:	2
+Version:	4.1.73
+Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	ee3249181232fcbaaacf027b17fbf020
+# Source0-md5:	84bc67f239ced4f2955f444dc21402fc
 BuildRequires:	automoc4 >= 0.9.83
-BuildRequires:	cmake
+BuildRequires:	cmake >= 2.6.2
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -33,6 +33,7 @@ Summary(pl.UTF-8):	Pliki przydatne twórcom gier dla KDE
 Summary(pt_BR.UTF-8):	Arquivos de inclusão do kdegames
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}-ksirk = %{version}-%{release}
 Requires:	kde4-kdelibs-devel >= %{version}
 
 %description devel
@@ -626,9 +627,6 @@ rm -rf $RPM_BUILD_ROOT
 %post			-p /sbin/ldconfig
 %postun			-p /sbin/ldconfig
 
-%post	kolf		-p /sbin/ldconfig
-%postun	kolf		-p /sbin/ldconfig
-
 %files
 %defattr(644,root,root,755)
 #%doc AUTHORS ChangeLog README README.highscore
@@ -644,6 +642,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkmahjongglib.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libkolfprivate.so.?
 %attr(755,root,root) %{_libdir}/libkolfprivate.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libiris_ksirk.so.?
+%attr(755,root,root) %{_libdir}/libiris_ksirk.so.*.*.*
 %{_datadir}/apps/kdegames
 %{_iconsdir}/hicolor/scalable/apps/knetwalk.svgz
 %{_iconsdir}/oxygen/scalable/actions/lastmoves.svgz
@@ -655,6 +655,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkggzmod.so
 %attr(755,root,root) %{_libdir}/libkggzgames.so
 %attr(755,root,root) %{_libdir}/libkggznet.so
+%attr(755,root,root) %{_libdir}/libiris_ksirk.so
+%attr(755,root,root) %{_libdir}/libkolfprivate.so
 %{_includedir}/*.h
 %{_includedir}/digits
 %{_includedir}/kgame
@@ -798,7 +800,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files kolf -f kolf.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libkolfprivate.so
 %attr(755,root,root) %{_bindir}/kolf
 %{_desktopdir}/kde4/kolf.desktop
 %{_datadir}/apps/kolf
