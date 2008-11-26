@@ -9,12 +9,12 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.1.73
+Version:	4.1.80
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	84bc67f239ced4f2955f444dc21402fc
+# Source0-md5:	58e1c8f00b291a00320437361c1a3dca
 BuildRequires:	automoc4 >= 0.9.83
 BuildRequires:	cmake >= 2.6.2
 BuildRequires:	kde4-kdelibs-devel >= %{version}
@@ -577,6 +577,14 @@ Requires:	%{name} = %{version}-%{release}
 %description killbots
 Killbots.
 
+%package bomber
+Summary:	bomber
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description bomber
+Bomber.
+
 %prep
 %setup -q -n %{orgname}-%{version}
 
@@ -603,6 +611,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/var/games
 touch $RPM_BUILD_ROOT/var/games/kbounce.scores
 
+%find_lang bomber	--with-kde
 %find_lang bovo		--with-kde
 %find_lang kfourinline	--with-kde
 %find_lang katomic	--with-kde
@@ -715,6 +724,12 @@ rm -rf $RPM_BUILD_ROOT
 %files carddecks
 %defattr(644,root,root,755)
 %{_datadir}/apps/carddecks
+
+%files bomber -f bomber.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/bomber
+%{_desktopdir}/kde4/bomber.desktop
+%{_datadir}/apps/bomber
 
 %files bovo -f bovo.lang
 %defattr(644,root,root,755)
