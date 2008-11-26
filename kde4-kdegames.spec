@@ -730,6 +730,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/bomber
 %{_desktopdir}/kde4/bomber.desktop
 %{_datadir}/apps/bomber
+%{_datadir}/config.kcfg/bomber.kcfg
+%{_iconsdir}/hicolor/*x*/apps/bomber.png
 
 %files bovo -f bovo.lang
 %defattr(644,root,root,755)
