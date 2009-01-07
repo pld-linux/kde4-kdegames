@@ -9,12 +9,12 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.1.87
+Version:	4.1.96
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	8eeee63cf66ed7cfe281acc399955784
+# Source0-md5:	7d9be8e33e9626774cb6893259564620
 BuildRequires:	automoc4 >= 0.9.83
 BuildRequires:	cmake >= 2.6.2
 BuildRequires:	kde4-kdelibs-devel >= %{version}
@@ -672,9 +672,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libiris_ksirk.so.?
 %attr(755,root,root) %{_libdir}/libiris_ksirk.so.*.*.*
 %{_datadir}/apps/kdegames
-%{_iconsdir}/hicolor/scalable/apps/knetwalk.svgz
-%{_iconsdir}/oxygen/scalable/actions/lastmoves.svgz
-%{_iconsdir}/oxygen/scalable/actions/legalmoves.svgz
+#%{_iconsdir}/hicolor/scalable/apps/knetwalk.svgz
+#%{_iconsdir}/oxygen/scalable/actions/lastmoves.svgz
+#%{_iconsdir}/oxygen/scalable/actions/legalmoves.svgz
 
 %files devel
 %defattr(644,root,root,755)
@@ -942,7 +942,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kdiamond
 %{_datadir}/config/kdiamond.knsrc
 %{_iconsdir}/*/*/apps/kdiamond.png
-%{_iconsdir}/hicolor/scalable/apps/kdiamond.svgz
+#%{_iconsdir}/hicolor/scalable/apps/kdiamond.svgz
 %{_datadir}/sounds/KDiamond-Stone-Drop.ogg
 %{_datadir}/sounds/KDiamond-Stone-Swap.ogg
 %{_datadir}/sounds/KDiamond-Stone-Touch.ogg
@@ -953,7 +953,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kollision.desktop
 %{_datadir}/apps/kollision
 %{_iconsdir}/*/*/apps/kollision.png
-%{_iconsdir}/oxygen/scalable/apps/kollision.svgz
+#%{_iconsdir}/oxygen/scalable/apps/kollision.svgz
 
 %files ksirk -f ksirk.lang
 %defattr(644,root,root,755)
@@ -984,7 +984,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kapman
 %{_datadir}/sounds/kapman
 #%{_iconsdir}/*/*/apps/kapman.png
-%{_iconsdir}/hicolor/scalable/apps/kapman.svgz
+#%{_iconsdir}/hicolor/scalable/apps/kapman.svgz
 
 %files killbots -f killbots.lang
 %defattr(644,root,root,755)
