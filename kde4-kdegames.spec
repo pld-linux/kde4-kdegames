@@ -983,7 +983,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kapman.desktop
 %{_datadir}/apps/kapman
 %{_datadir}/sounds/kapman
-#%{_iconsdir}/*/*/apps/kapman.png
+%{_iconsdir}/*/*/apps/kapman.png
 #%{_iconsdir}/hicolor/scalable/apps/kapman.svgz
 
 %files killbots -f killbots.lang
