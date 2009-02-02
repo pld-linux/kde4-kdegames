@@ -1,5 +1,6 @@
-%define		_state		stable
+%define		_state		unstable
 %define		orgname		kdegames
+%define		qtver		4.4.3
 Summary:	K Desktop Environment - games
 Summary(es.UTF-8):	K Desktop Environment - Juegos
 Summary(ja.UTF-8):	KDEデスクトップ環境 - ゲーム
@@ -8,14 +9,14 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.1.0
-Release:	1
+Version:	4.2.0
+Release:	3
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	2c0a4c089bf31ff9bd3133c3f58c4dc7
-BuildRequires:	automoc4 >= 0.9.83
-BuildRequires:	cmake
+# Source0-md5:	68cefd627025be99ba136e5a4e35e554
+BuildRequires:	automoc4 >= 0.9.88
+BuildRequires:	cmake >= 2.6.2
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -32,6 +33,7 @@ Summary(pl.UTF-8):	Pliki przydatne twórcom gier dla KDE
 Summary(pt_BR.UTF-8):	Arquivos de inclusão do kdegames
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}-ksirk = %{version}-%{release}
 Requires:	kde4-kdelibs-devel >= %{version}
 
 %description devel
@@ -61,7 +63,7 @@ Summary:	bovo
 Summary(pl.UTF-8):	bovo
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
-Requires:	kde4-kdebase-core >= %{version}
+Requires:	kde4-kdebase >= %{version}
 
 %description bovo
 bovo.
@@ -90,7 +92,7 @@ Summary:	kfourinline
 Summary(pl.UTF-8):	kfourinline
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
-Requires:	kde4-kdebase-core >= %{version}
+Requires:	kde4-kdebase >= %{version}
 
 %description kfourinline
 kfourinline.
@@ -512,7 +514,7 @@ punktów. Po 16 ruchach wszystkie karty są rozegrane i gra się kończy.
 Jogo de cartas Lieutenant Skat para KDE
 
 %package kblocks
-Summary:        KBlocks
+Summary:	KBlocks
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
 
@@ -520,7 +522,7 @@ Requires:	%{name} = %{version}-%{release}
 KBlocks.
 
 %package kbreakout
-Summary:        KBreakout
+Summary:	KBreakout
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
 
@@ -528,7 +530,7 @@ Requires:	%{name} = %{version}-%{release}
 KBreakout.
 
 %package kdiamond
-Summary:        KDiamond
+Summary:	KDiamond
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
 
@@ -536,7 +538,7 @@ Requires:	%{name} = %{version}-%{release}
 KDiamond.
 
 %package kollision
-Summary:        Kollision
+Summary:	Kollision
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
 
@@ -544,7 +546,7 @@ Requires:	%{name} = %{version}-%{release}
 Kollision.
 
 %package ksirk
-Summary:        KSirk
+Summary:	KSirk
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
 
@@ -552,12 +554,36 @@ Requires:	%{name} = %{version}-%{release}
 KSirk.
 
 %package kubrick
-Summary:        kubrick
+Summary:	kubrick
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
 
 %description kubrick
 Kubrick.
+
+%package kapman
+Summary:	kapman
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description kapman
+Kapman.
+
+%package killbots
+Summary:	killbots
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description killbots
+Killbots.
+
+%package bomber
+Summary:	bomber
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description bomber
+Bomber.
 
 %prep
 %setup -q -n %{orgname}-%{version}
@@ -584,7 +610,10 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/var/games
 touch $RPM_BUILD_ROOT/var/games/kbounce.scores
+# remove locolor icons
+rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 
+%find_lang bomber	--with-kde
 %find_lang bovo		--with-kde
 %find_lang kfourinline	--with-kde
 %find_lang katomic	--with-kde
@@ -615,6 +644,8 @@ touch $RPM_BUILD_ROOT/var/games/kbounce.scores
 %find_lang kollision	--with-kde
 %find_lang ksirk	--with-kde
 %find_lang kubrick	--with-kde
+%find_lang kapman	--with-kde
+%find_lang killbots	--with-kde
 
 # Omit apidocs entries
 sed -i 's/.*apidocs.*//' *.lang
@@ -624,9 +655,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %post			-p /sbin/ldconfig
 %postun			-p /sbin/ldconfig
-
-%post	kolf		-p /sbin/ldconfig
-%postun	kolf		-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -643,10 +671,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkmahjongglib.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libkolfprivate.so.?
 %attr(755,root,root) %{_libdir}/libkolfprivate.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libiris_ksirk.so.?
+%attr(755,root,root) %{_libdir}/libiris_ksirk.so.*.*.*
 %{_datadir}/apps/kdegames
-%{_iconsdir}/hicolor/scalable/apps/knetwalk.svgz
-%{_iconsdir}/oxygen/scalable/actions/lastmoves.svgz
-%{_iconsdir}/oxygen/scalable/actions/legalmoves.svgz
+#%{_iconsdir}/hicolor/scalable/apps/knetwalk.svgz
+#%{_iconsdir}/oxygen/scalable/actions/lastmoves.svgz
+#%{_iconsdir}/oxygen/scalable/actions/legalmoves.svgz
 
 %files devel
 %defattr(644,root,root,755)
@@ -654,6 +684,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkggzmod.so
 %attr(755,root,root) %{_libdir}/libkggzgames.so
 %attr(755,root,root) %{_libdir}/libkggznet.so
+%attr(755,root,root) %{_libdir}/libiris_ksirk.so
+%attr(755,root,root) %{_libdir}/libkolfprivate.so
+%{_datadir}/apps/cmake/modules/FindLibKDEGames.cmake
+%{_datadir}/apps/cmake/modules/GGZ.cmake
 %{_includedir}/*.h
 %{_includedir}/digits
 %{_includedir}/kgame
@@ -693,6 +727,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_datadir}/apps/carddecks
 
+%files bomber -f bomber.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/bomber
+%{_desktopdir}/kde4/bomber.desktop
+%{_datadir}/apps/bomber
+%{_datadir}/config.kcfg/bomber.kcfg
+%{_iconsdir}/hicolor/*x*/apps/bomber.png
+
 %files bovo -f bovo.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/bovo
@@ -725,7 +767,6 @@ rm -rf $RPM_BUILD_ROOT
 %files kbattleship -f kbattleship.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kbattleship
-%{_datadir}/apps/kbattleship/kbattleshipui.rc
 %{_desktopdir}/kde4/kbattleship.desktop
 %{_datadir}/apps/kbattleship
 %{_iconsdir}/*/*/apps/kbattleship.png
@@ -797,7 +838,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files kolf -f kolf.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libkolfprivate.so
 %attr(755,root,root) %{_bindir}/kolf
 %{_desktopdir}/kde4/kolf.desktop
 %{_datadir}/apps/kolf
@@ -904,6 +944,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kdiamond
 %{_datadir}/config/kdiamond.knsrc
 %{_iconsdir}/*/*/apps/kdiamond.png
+#%{_iconsdir}/hicolor/scalable/apps/kdiamond.svgz
+%{_datadir}/sounds/KDiamond-Stone-Drop.ogg
+%{_datadir}/sounds/KDiamond-Stone-Swap.ogg
+%{_datadir}/sounds/KDiamond-Stone-Touch.ogg
 
 %files kollision -f kollision.lang
 %defattr(644,root,root,755)
@@ -911,14 +955,20 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kollision.desktop
 %{_datadir}/apps/kollision
 %{_iconsdir}/*/*/apps/kollision.png
+#%{_iconsdir}/oxygen/scalable/apps/kollision.svgz
 
 %files ksirk -f ksirk.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ksirk
+%attr(755,root,root) %{_bindir}/ksirkskineditor
 %{_desktopdir}/kde4/ksirk.desktop
 %{_datadir}/apps/ksirk
 %{_datadir}/config.kcfg/ksirksettings.kcfg
 %{_iconsdir}/*/*/apps/ksirk.png
+%{_desktopdir}/kde4/ksirkskineditor.desktop
+%{_datadir}/apps/ksirkskineditor
+%{_datadir}/config.kcfg/ksirkskineditorsettings.kcfg
+%{_datadir}/config/ksirk.knsrc
 
 %files kubrick -f kubrick.lang
 %defattr(644,root,root,755)
@@ -926,3 +976,20 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kubrick.desktop
 %{_datadir}/apps/kubrick
 %{_iconsdir}/*/*/apps/kubrick.png
+
+%files kapman -f kapman.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kapman
+%{_desktopdir}/kde4/kapman.desktop
+%{_datadir}/apps/kapman
+%{_datadir}/sounds/kapman
+%{_iconsdir}/*/*/apps/kapman.png
+#%{_iconsdir}/hicolor/scalable/apps/kapman.svgz
+
+%files killbots -f killbots.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/killbots
+%{_desktopdir}/kde4/killbots.desktop
+%{_datadir}/config.kcfg/killbots.kcfg
+%{_datadir}/apps/killbots
+%{_iconsdir}/*/*/apps/killbots.png
