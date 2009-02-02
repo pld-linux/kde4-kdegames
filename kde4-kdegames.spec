@@ -10,7 +10,7 @@ Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
 Version:	4.2.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -610,6 +610,8 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/var/games
 touch $RPM_BUILD_ROOT/var/games/kbounce.scores
+# remove locolor icons
+rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 
 %find_lang bomber	--with-kde
 %find_lang bovo		--with-kde
@@ -964,9 +966,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/ksirksettings.kcfg
 %{_iconsdir}/*/*/apps/ksirk.png
 %{_desktopdir}/kde4/ksirkskineditor.desktop
-%{_datadir}/apps/ksirkskineditor/cross.png
-%{_datadir}/apps/ksirkskineditor/ksirkskineditorui.rc
-%{_datadir}/apps/ksirkskineditor/target.png
+%{_datadir}/apps/ksirkskineditor
 %{_datadir}/config.kcfg/ksirkskineditorsettings.kcfg
 %{_datadir}/config/ksirk.knsrc
 
