@@ -1,4 +1,4 @@
-%define		_state		unstable
+%define		_state		stable
 %define		orgname		kdegames
 %define		qtver		4.4.3
 Summary:	K Desktop Environment - games
@@ -10,7 +10,7 @@ Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
 Version:	4.2.0
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
