@@ -16,7 +16,7 @@ Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 # Source0-md5:	85a1dfe811e0704eb7ef65e0c371f863
 BuildRequires:	automoc4 >= 0.9.88
-BuildRequires:	cmake >= 2.6.2
+BuildRequires:	cmake >= 2.6.3
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
