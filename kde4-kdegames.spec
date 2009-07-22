@@ -1,6 +1,6 @@
 %define		_state		stable
 %define		orgname		kdegames
-%define		qtver		4.5.0
+%define		qtver		4.5.2
 Summary:	K Desktop Environment - games
 Summary(es.UTF-8):	K Desktop Environment - Juegos
 Summary(ja.UTF-8):	KDEデスクトップ環境 - ゲーム
@@ -9,12 +9,12 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.2.95
+Version:	4.2.98
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	89d85d206ea3ea5b55fe818650a0006a
+# Source0-md5:	88843c8935c1f5dd57c16ab94784772c
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.6.3
 BuildRequires:	kde4-kdelibs-devel >= %{version}
@@ -585,6 +585,22 @@ Requires:	%{name} = %{version}-%{release}
 %description bomber
 Bomber.
 
+%package kdesnake
+Summary:	Kdesnake
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description kdesnake
+Kdesnake.
+
+%package ktron
+Summary:	Kktron
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description ktron
+Kktron.
+
 %prep
 %setup -q -n %{orgname}-%{version}
 
@@ -648,6 +664,8 @@ rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 %find_lang kubrick	--with-kde
 %find_lang kapman	--with-kde
 %find_lang killbots	--with-kde
+#%find_lang kdesnake	--with-kde
+%find_lang ktron	--with-kde
 
 # Omit apidocs entries
 sed -i 's/.*apidocs.*//' *.lang
@@ -729,6 +747,21 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_datadir}/apps/carddecks
 
+%files kdesnake
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kdesnake
+%{_desktopdir}/kde4/kdesnake.desktop
+%{_iconsdir}/hicolor/*x*/apps/kdesnake.png
+
+%files ktron -f ktron.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/ktron
+%{_desktopdir}/kde4/ktron.desktop
+%{_datadir}/apps/ktron
+%{_datadir}/config.kcfg/ktron.kcfg
+%{_datadir}/config/ktron.knsrc
+%{_iconsdir}/hicolor/*x*/apps/ktron.png
+
 %files bomber -f bomber.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/bomber
@@ -772,6 +805,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kbattleship.desktop
 %{_datadir}/apps/kbattleship
 %{_iconsdir}/*/*/apps/kbattleship.png
+%{_datadir}/kde4/services/kbattleship.protocol
 
 %files kblackbox -f kblackbox.lang
 %defattr(644,root,root,755)
