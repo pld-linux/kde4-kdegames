@@ -47,18 +47,6 @@ Pliki dla programistów KDE games.
 Este pacote detém os arquivos de inclusão necessários para compilar
 aplicativos que usam bibliotecas do kdegames.
 
-%package apidocs
-Summary:	API documentation
-Summary(pl.UTF-8):	Dokumentacja API
-Group:		Documentation
-Requires:	kdelibs >= %{version}
-
-%description apidocs
-API documentation.
-
-%description apidocs -l pl.UTF-8
-Dokumentacja API.
-
 %package bovo
 Summary:	bovo
 Summary(pl.UTF-8):	bovo
@@ -668,9 +656,6 @@ rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 #%find_lang kdesnake	--with-kde
 %find_lang ktron	--with-kde
 
-# Omit apidocs entries
-sed -i 's/.*apidocs.*//' *.lang
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -737,12 +722,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/kggzgames
 %{_includedir}/kggzmod
 %{_includedir}/kggznet
-
-%if %{with apidocs}
-%files apidocs
-%defattr(644,root,root,755)
-%{_kdedocdir}/en/%{name}-apidocs
-%endif
 
 %files carddecks
 %defattr(644,root,root,755)
