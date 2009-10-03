@@ -10,15 +10,22 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.3.1
+Version:	4.3.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	dd0819543978033d4701d65109bf3926
+# Source0-md5:	7ddf38fb2aa84bd14d176d5a9f45ed3f
+BuildRequires:	Qt3Support-devel >= %{qtver}
+BuildRequires:	QtNetwork-devel >= %{qtver}
+BuildRequires:	QtOpenGL-devel >= %{qtver}
+BuildRequires:	QtSvg-devel >= %{qtver}
+BuildRequires:	QtTest-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.6.3
+BuildRequires:	ggz-client-libs-devel
 BuildRequires:	kde4-kdelibs-devel >= %{version}
+BuildRequires:	qca-devel >= 2.0.1
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -985,6 +992,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/ksirkskineditor
 %{_datadir}/config.kcfg/ksirkskineditorsettings.kcfg
 %{_datadir}/config/ksirk.knsrc
+%{_kdedocdir}/en
 
 %files kubrick -f kubrick.lang
 %defattr(644,root,root,755)
