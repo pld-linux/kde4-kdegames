@@ -1,21 +1,22 @@
-%define		_state		stable
+%define		_state		unstable
 %define		orgname		kdegames
 %define		qtver		4.5.3
+%define		snap		svn1027298
 
 Summary:	K Desktop Environment - games
 Summary(es.UTF-8):	K Desktop Environment - Juegos
-Summary(ja.UTF-8):	KDEデスクトップ環境 - ゲーム
-Summary(ko.UTF-8):	K 데스크탑 환경 - 놀이(게임)
+Summary(ja.UTF-8):	KDEデスクトップ環境 - ゲーツ1�7Summary(ko.UTF-8):	K 데스크탑 환경 - 놄1�7을1�7게임)
 Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.3.2
+Version:	4.3.69
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	7ddf38fb2aa84bd14d176d5a9f45ed3f
+#Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}%{snap}.tar.bz2
+# Source0-md5:	ec52c07a1416b27aa76638c4044a619e
 BuildRequires:	Qt3Support-devel >= %{qtver}
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	QtOpenGL-devel >= %{qtver}
@@ -598,7 +599,8 @@ Requires:	%{name} = %{version}-%{release}
 Kktron.
 
 %prep
-%setup -q -n %{orgname}-%{version}
+%setup -q -n %{orgname}-%{version}%{snap}
+#%setup -q -n %{orgname}-%{version}
 
 %build
 install -d build
@@ -903,6 +905,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kshisen.desktop
 %{_datadir}/config.kcfg/kshisen.kcfg
 %{_datadir}/apps/kshisen
+%{_datadir}/sounds/kshisen
 %{_iconsdir}/*/*/apps/kshisen.png
 
 %files ksquares -f ksquares.lang
