@@ -26,6 +26,7 @@ BuildRequires:	cmake >= 2.6.3
 BuildRequires:	ggz-client-libs-devel
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	qca-devel >= 2.0.1
+BuildRequires:	qt4-build
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
