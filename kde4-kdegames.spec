@@ -10,12 +10,12 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.3.4
+Version:	4.3.5
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	6273502fdfb0c0ad604a1b96d79ef34b
+# Source0-md5:	f5b3609f9204397a8b02d8067c1f0bb8
 BuildRequires:	Qt3Support-devel >= %{qtver}
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	QtOpenGL-devel >= %{qtver}
