@@ -1,11 +1,11 @@
 %define		_state		unstable
 %define		orgname		kdegames
 %define		qtver		4.6.0
-%define		snap		svn1027298
 
 Summary:	K Desktop Environment - games
 Summary(es.UTF-8):	K Desktop Environment - Juegos
-Summary(ja.UTF-8):	KDE銉囥偣銈儓銉冦儣鐠板 - 銈层兗銉�Summary(ko.UTF-8):	K 雿办姢韥儜 頇橁步 - 雴�鞚�瓴岇瀯)
+Summary(ja.UTF-8):	KDE銉囥偣銈儓銉冦儣鐠板 - 銈层兗銉�
+Summary(ko.UTF-8):	K 雿办姢韥儜 頇橁步 - 雴�鞚�瓴岇瀯)
 Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE娓告垙
