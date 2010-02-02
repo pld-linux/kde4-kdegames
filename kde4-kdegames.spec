@@ -1,6 +1,6 @@
 %define		_state		unstable
 %define		orgname		kdegames
-%define		qtver		4.6.0
+%define		qtver		4.6.1
 
 Summary:	K Desktop Environment - games
 Summary(es.UTF-8):	K Desktop Environment - Juegos
