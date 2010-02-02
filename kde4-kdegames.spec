@@ -22,7 +22,7 @@ BuildRequires:	QtOpenGL-devel >= %{qtver}
 BuildRequires:	QtSvg-devel >= %{qtver}
 BuildRequires:	QtTest-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
-BuildRequires:	cmake >= 2.6.3
+BuildRequires:	cmake >= 2.8.0
 BuildRequires:	ggz-client-libs-devel
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	qca-devel >= 2.0.1
