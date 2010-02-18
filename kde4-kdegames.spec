@@ -1,32 +1,33 @@
 %define		_state		stable
 %define		orgname		kdegames
-%define		qtver		4.5.3
+%define		qtver		4.6.1
 
 Summary:	K Desktop Environment - games
 Summary(es.UTF-8):	K Desktop Environment - Juegos
-Summary(ja.UTF-8):	KDEデスクトップ環境 - ゲーム
-Summary(ko.UTF-8):	K 데스크탑 환경 - 놀이(게임)
+Summary(ja.UTF-8):	KDEデスクトップ環境 - ゲーツ1�7
+Summary(ko.UTF-8):	K 데스크탑 환경 - 놄1�7을1�7게임)
 Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.3.5
+Version:	4.4.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	f5b3609f9204397a8b02d8067c1f0bb8
+# Source0-md5:	f19b44427efc9751bef34ea0c4512b3f
 BuildRequires:	Qt3Support-devel >= %{qtver}
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	QtOpenGL-devel >= %{qtver}
 BuildRequires:	QtSvg-devel >= %{qtver}
 BuildRequires:	QtTest-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
-BuildRequires:	cmake >= 2.6.3
+BuildRequires:	cmake >= 2.8.0
 BuildRequires:	ggz-client-libs-devel
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	qca-devel >= 2.0.1
-BuildRequires:	qt4-build
+BuildRequires:	qt4-build >= %{qtver}
+BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -591,12 +592,36 @@ Requires:	%{name} = %{version}-%{release}
 Kdesnake.
 
 %package ktron
-Summary:	Kktron
+Summary:	Ktron
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
 
 %description ktron
-Kktron.
+Ktron.
+
+%package granatier
+Summary:	Granatier
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description granatier
+Granatier.
+
+%package kigo
+Summary:	Kigo
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description kigo
+Kigo.
+
+%package palapeli
+Summary:	Palapeli
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description palapeli
+Palapeli.
 
 %prep
 %setup -q -n %{orgname}-%{version}
@@ -663,6 +688,9 @@ rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 %find_lang killbots	--with-kde
 #%find_lang kdesnake	--with-kde
 %find_lang ktron	--with-kde
+%find_lang granatier	--with-kde
+%find_lang kigo		--with-kde
+%find_lang palapeli	--with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -687,6 +715,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkolfprivate.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libiris_ksirk.so.?
 %attr(755,root,root) %{_libdir}/libiris_ksirk.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libpala.so.?
+%attr(755,root,root) %{_libdir}/libpala.so.*.*.*
 %{_datadir}/apps/kdegames
 #%{_iconsdir}/hicolor/scalable/apps/knetwalk.svgz
 #%{_iconsdir}/oxygen/scalable/actions/lastmoves.svgz
@@ -700,8 +730,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkggznet.so
 %attr(755,root,root) %{_libdir}/libiris_ksirk.so
 %attr(755,root,root) %{_libdir}/libkolfprivate.so
+%attr(755,root,root) %{_libdir}/libpala.so
 %{_datadir}/apps/cmake/modules/FindLibKDEGames.cmake
 %{_datadir}/apps/cmake/modules/GGZ.cmake
+%dir %{_libdir}/libpala
+%{_libdir}/libpala/*.cmake
 %{_includedir}/*.h
 %{_includedir}/digits
 %{_includedir}/kgame
@@ -730,6 +763,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/kggzgames
 %{_includedir}/kggzmod
 %{_includedir}/kggznet
+%{_includedir}/Pala
+%{_includedir}/libpala
 
 %files carddecks
 %defattr(644,root,root,755)
@@ -778,6 +813,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/katomic
 %{_desktopdir}/kde4/katomic.desktop
 %{_datadir}/apps/katomic
+%{_datadir}/config/katomic.knsrc
+%{_datadir}/apps/kconf_update/katomic-levelset-upd.pl
+%{_datadir}/apps/kconf_update/katomic-levelset.upd
 %{_iconsdir}/*/*/apps/katomic.png
 
 %files kiriki -f kiriki.lang
@@ -904,6 +942,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kshisen.desktop
 %{_datadir}/config.kcfg/kshisen.kcfg
 %{_datadir}/apps/kshisen
+%{_datadir}/sounds/kshisen
 %{_iconsdir}/*/*/apps/kshisen.png
 
 %files ksquares -f ksquares.lang
@@ -1018,3 +1057,38 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/killbots.kcfg
 %{_datadir}/apps/killbots
 %{_iconsdir}/*/*/apps/killbots.png
+
+%files granatier -f granatier.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/granatier
+%{_datadir}/apps/granatier
+%{_datadir}/applications/kde4/granatier.desktop
+%{_datadir}/config.kcfg/granatier.kcfg
+%{_iconsdir}/hicolor/*x*/apps/granatier.png
+
+%files kigo -f kigo.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kigo
+%{_datadir}/apps/kigo
+%{_datadir}/applications/kde4/kigo.desktop
+%{_datadir}/config.kcfg/kigo.kcfg
+%{_datadir}/config/kigo-games.knsrc
+%{_datadir}/config/kigo.knsrc
+%{_iconsdir}/hicolor/*x*/apps/kigo.png
+
+%files palapeli -f palapeli.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/palapeli
+%attr(755,root,root) %{_bindir}/libpala-puzzlebuilder
+%attr(755,root,root) %{_libdir}/kde4/palapeli_jigsawslicer.so
+%attr(755,root,root) %{_libdir}/kde4/palapeli_rectslicer.so
+%attr(755,root,root) %{_libdir}/kde4/palathumbcreator.so
+%{_datadir}/apps/palapeli
+%{_datadir}/kde4/services/ServiceMenus/palapeli_servicemenu.desktop
+%{_datadir}/kde4/services/palapeli_jigsawslicer.desktop
+%{_datadir}/kde4/services/palapeli_rectslicer.desktop
+%{_datadir}/kde4/services/palathumbcreator.desktop
+%{_datadir}/kde4/servicetypes/libpala-slicerplugin.desktop
+%{_datadir}/mime/packages/palapeli-mimetypes.xml
+%{_datadir}/applications/kde4/palapeli.desktop
+%{_datadir}/config/palapeli-collectionrc
