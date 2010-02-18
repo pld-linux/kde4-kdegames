@@ -4,8 +4,8 @@
 
 Summary:	K Desktop Environment - games
 Summary(es.UTF-8):	K Desktop Environment - Juegos
-Summary(ja.UTF-8):	KDEデスクトップ環境 - ゲーツ1�7
-Summary(ko.UTF-8):	K 데스크탑 환경 - 놄1�7을1�7게임)
+Summary(ja.UTF-8):	KDEデスクトップ環境 - ゲーム
+Summary(ko.UTF-8):	K 데스크탑 환경 - 놀이(게임)
 Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
