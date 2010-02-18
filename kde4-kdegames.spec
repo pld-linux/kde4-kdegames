@@ -19,6 +19,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version
 BuildRequires:	Qt3Support-devel >= %{qtver}
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	QtOpenGL-devel >= %{qtver}
+BuildRequires:	QtScript-devel >= %{qtver}
 BuildRequires:	QtSvg-devel >= %{qtver}
 BuildRequires:	QtTest-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
@@ -1062,7 +1063,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/granatier
 %{_datadir}/apps/granatier
-%{_datadir}/applications/kde4/granatier.desktop
+%{_desktopdir}/kde4/granatier.desktop
 %{_datadir}/config.kcfg/granatier.kcfg
 %{_iconsdir}/hicolor/*x*/apps/granatier.png
 
@@ -1070,7 +1071,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kigo
 %{_datadir}/apps/kigo
-%{_datadir}/applications/kde4/kigo.desktop
+%{_desktopdir}/kde4/kigo.desktop
 %{_datadir}/config.kcfg/kigo.kcfg
 %{_datadir}/config/kigo-games.knsrc
 %{_datadir}/config/kigo.knsrc
@@ -1090,5 +1091,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/palathumbcreator.desktop
 %{_datadir}/kde4/servicetypes/libpala-slicerplugin.desktop
 %{_datadir}/mime/packages/palapeli-mimetypes.xml
-%{_datadir}/applications/kde4/palapeli.desktop
+%{_desktopdir}/kde4/palapeli.desktop
 %{_datadir}/config/palapeli-collectionrc
