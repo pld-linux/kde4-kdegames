@@ -1,6 +1,6 @@
 %define		_state		stable
 %define		orgname		kdegames
-%define		qtver		4.6.2
+%define		qtver		4.6.3
 
 Summary:	K Desktop Environment - games
 Summary(es.UTF-8):	K Desktop Environment - Juegos
@@ -10,12 +10,12 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.4.4
+Version:	4.4.5
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	7dd7057b6d4102f2b444263e63e672fa
+# Source0-md5:	720bac51311730cfb36c6082bf85ec60
 BuildRequires:	Qt3Support-devel >= %{qtver}
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	QtOpenGL-devel >= %{qtver}
@@ -25,6 +25,7 @@ BuildRequires:	QtTest-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	ggz-client-libs-devel
+#BuildRequires:	gluon-devel >= 0.70.0
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	qca-devel >= 2.0.1
 BuildRequires:	qt4-build >= %{qtver}
