@@ -10,12 +10,12 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.4.5
+Version:	4.5.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	720bac51311730cfb36c6082bf85ec60
+# Source0-md5:	96d6df26a7c462c865ba8631b8a95e1c
 BuildRequires:	Qt3Support-devel >= %{qtver}
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	QtOpenGL-devel >= %{qtver}
@@ -625,6 +625,14 @@ Requires:	%{name} = %{version}-%{release}
 %description palapeli
 Palapeli.
 
+%package kajongg
+Summary:	Kajongg
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}-%{release}
+
+%description kajongg
+Kajongg.
+
 %prep
 %setup -q -n %{orgname}-%{version}
 
@@ -800,6 +808,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/bovo
 %{_desktopdir}/kde4/bovo.desktop
 %{_datadir}/apps/bovo
+%{_iconsdir}/hicolor/*x*/apps/bovo.png
 
 %files kfourinline -f kfourinline.lang
 %defattr(644,root,root,755)
@@ -920,6 +929,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kpat.desktop
 %{_datadir}/apps/kpat
 %{_datadir}/apps/kconf_update/kpat_update_cardwidth.upd
+%{_datadir}/config.kcfg/kpat.kcfg
+%{_datadir}/config/kcardtheme.knsrc
+%{_datadir}/config/kpat.knsrc
 %{_iconsdir}/*/*/apps/kpat.png
 
 %files kreversi -f kreversi.lang
@@ -977,6 +989,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/ktuberling.desktop
 %{_datadir}/apps/ktuberling
 %{_iconsdir}/*/*/apps/ktuberling.png
+%{_iconsdir}/hicolor/*x*/mimetypes/application-x-tuberling.png
 
 %files lskat -f lskat.lang
 %defattr(644,root,root,755)
@@ -1094,3 +1107,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mime/packages/palapeli-mimetypes.xml
 %{_desktopdir}/kde4/palapeli.desktop
 %{_datadir}/config/palapeli-collectionrc
+%{_iconsdir}/hicolor/*x*/apps/palapeli.png
+%{_iconsdir}/hicolor/*x*/mimetypes/application-x-palapeli.png
+
+%files kajongg
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kajongg
+%attr(755,root,root) %{_bindir}/kajonggserver
+%attr(755,root,root) %{_libdir}/libkcardgame.so
+%{_desktopdir}/kde4/kajongg.desktop
+%{_datadir}/apps/kajongg
