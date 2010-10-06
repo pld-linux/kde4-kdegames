@@ -1047,7 +1047,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/ksirkskineditor
 %{_datadir}/config.kcfg/ksirkskineditorsettings.kcfg
 %{_datadir}/config/ksirk.knsrc
-%{_kdedocdir}/en
+%{_kdedocdir}/en/ksirk
 
 %files kubrick -f kubrick.lang
 %defattr(644,root,root,755)
