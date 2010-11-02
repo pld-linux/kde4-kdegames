@@ -1050,6 +1050,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/ksirkskineditorsettings.kcfg
 %{_datadir}/config/ksirk.knsrc
 %{_kdedocdir}/en/ksirk
+%{_kdedocdir}/en/ksirkskineditor
 
 %files kubrick -f kubrick.lang
 %defattr(644,root,root,755)
@@ -1119,3 +1120,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkcardgame.so
 %{_desktopdir}/kde4/kajongg.desktop
 %{_datadir}/apps/kajongg
+%{_kdedocdir}/en/kajongg
