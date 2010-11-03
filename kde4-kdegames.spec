@@ -1050,7 +1050,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/ksirkskineditor
 %{_datadir}/config.kcfg/ksirkskineditorsettings.kcfg
 %{_datadir}/config/ksirk.knsrc
-%{_kdedocdir}/en/ksirk
 %{_kdedocdir}/en/ksirkskineditor
 
 %files kubrick -f kubrick.lang
