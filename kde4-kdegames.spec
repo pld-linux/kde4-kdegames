@@ -11,7 +11,7 @@ Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
 Version:	4.5.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -29,6 +29,7 @@ BuildRequires:	ggz-client-libs-devel
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	python-PyKDE4 >= %{version}
 BuildRequires:	python-PyQt4-devel >= 4.7.7
+BuildRequires:	python-TwistedCore
 BuildRequires:	qca-devel >= 2.0.1
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
