@@ -10,18 +10,13 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.5.5
+Version:	4.6.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	bda063329f33c72fd8dc2a8412e8ff85
-BuildRequires:	Qt3Support-devel >= %{qtver}
+# Source0-md5:	131260cb75a7590910b8b84f18e6b35e
 BuildRequires:	QtNetwork-devel >= %{qtver}
-BuildRequires:	QtOpenGL-devel >= %{qtver}
-BuildRequires:	QtScript-devel >= %{qtver}
-BuildRequires:	QtSvg-devel >= %{qtver}
-BuildRequires:	QtTest-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	ggz-client-libs-devel
@@ -636,6 +631,13 @@ Requires:	%{name} = %{version}-%{release}
 %description kajongg
 Kajongg.
 
+%package klickety
+Summary:	klickety
+Group:		X11/Applications
+
+%description klickety
+Board Game.
+
 %prep
 %setup -q -n %{orgname}-%{version}
 
@@ -677,7 +679,7 @@ rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 %find_lang konquest	--with-kde
 %find_lang kpat		--with-kde
 %find_lang kreversi	--with-kde
-%find_lang ksame	--with-kde
+#%find_lang ksame	--with-kde
 %find_lang kshisen	--with-kde
 %find_lang ksquares	--with-kde
 %find_lang ksudoku	--with-kde
@@ -693,6 +695,7 @@ rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 %find_lang kapman	--with-kde
 %find_lang killbots	--with-kde
 #%find_lang kdesnake	--with-kde
+%find_lang klickety	--with-kde
 %find_lang ktron	--with-kde
 %find_lang granatier	--with-kde
 %find_lang kigo		--with-kde
@@ -762,6 +765,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/KDE/KGameSvgDocument
 %{_includedir}/KDE/KGameTheme
 %{_includedir}/KDE/KGameThemeSelector
+%{_includedir}/KDE/KGameRenderedItem
+%{_includedir}/KDE/KGameRenderedObjectItem
+%{_includedir}/KDE/KGameRenderer
+%{_includedir}/KDE/KGameRendererClient
 %{_includedir}/KDE/KGrid2D
 %{_includedir}/KDE/KHighscore
 %{_includedir}/KDE/KScoreDialog
@@ -924,7 +931,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kpat
 %{_desktopdir}/kde4/kpat.desktop
 %{_datadir}/apps/kpat
-%{_datadir}/apps/kconf_update/kpat_update_cardwidth.upd
 %{_datadir}/config.kcfg/kpat.kcfg
 %{_datadir}/config/kcardtheme.knsrc
 %{_datadir}/config/kpat.knsrc
@@ -939,11 +945,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/actions/lastmoves.png
 %{_iconsdir}/*/*/apps/kreversi.png
 
-%files ksame -f ksame.lang
+#%%files ksame -f ksame.lang
+%files ksame
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/ksame
+#%attr(755,root,root) %{_bindir}/ksame
 %{_desktopdir}/kde4/ksame.desktop
-%{_datadir}/apps/ksame
+#%{_datadir}/apps/ksame
 %{_iconsdir}/*/*/apps/ksame.png
 
 %files kshisen -f kshisen.lang
@@ -1094,11 +1101,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/palapeli_jigsawslicer.so
 %attr(755,root,root) %{_libdir}/kde4/palapeli_rectslicer.so
 %attr(755,root,root) %{_libdir}/kde4/palathumbcreator.so
+%attr(755,root,root) %{_libdir}/kde4/palapeli_goldbergslicer.so
 %{_datadir}/apps/palapeli
 %{_datadir}/kde4/services/ServiceMenus/palapeli_servicemenu.desktop
 %{_datadir}/kde4/services/palapeli_jigsawslicer.desktop
 %{_datadir}/kde4/services/palapeli_rectslicer.desktop
 %{_datadir}/kde4/services/palathumbcreator.desktop
+%{_datadir}/kde4/services/palapeli_goldbergslicer.desktop
 %{_datadir}/kde4/servicetypes/libpala-slicerplugin.desktop
 %{_datadir}/mime/packages/palapeli-mimetypes.xml
 %{_desktopdir}/kde4/palapeli.desktop
@@ -1114,3 +1123,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kajongg.desktop
 %{_datadir}/apps/kajongg
 %{_kdedocdir}/en/kajongg
+
+
+%files klickety -f klickety.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/klickety
+%{_desktopdir}/kde4/klickety.desktop
+%{_datadir}/apps/kconf_update/klickety-2.0-inherit-ksame-highscore.pl
+%{_datadir}/apps/kconf_update/klickety.upd
+%{_datadir}/apps/klickety
+%{_iconsdir}/hicolor/*x*/apps/klickety.png
