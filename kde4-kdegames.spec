@@ -10,12 +10,12 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.6.5
-Release:	1
+Version:	4.7.0
+Release:	0.1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	5086119ff1c30cacd0ab31ab2f92c71a
+# Source0-md5:	fe27857410e79b3bd207c4dc4abc5709
 BuildRequires:	OpenAL-devel
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
@@ -1099,7 +1099,6 @@ rm -rf $RPM_BUILD_ROOT
 %files palapeli -f palapeli.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/palapeli
-%attr(755,root,root) %{_bindir}/libpala-puzzlebuilder
 %attr(755,root,root) %{_libdir}/kde4/palapeli_jigsawslicer.so
 %attr(755,root,root) %{_libdir}/kde4/palapeli_rectslicer.so
 %attr(755,root,root) %{_libdir}/kde4/palathumbcreator.so
@@ -1125,7 +1124,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kajongg.desktop
 %{_datadir}/apps/kajongg
 %{_kdedocdir}/en/kajongg
-
+%{_iconsdir}/hicolor/*x*/apps/kajongg.png
 
 %files klickety -f klickety.lang
 %defattr(644,root,root,755)
