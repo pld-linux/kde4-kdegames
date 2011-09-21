@@ -1,6 +1,6 @@
 %define		_state		stable
 %define		orgname		kdegames
-%define		qtver		4.7.3
+%define		qtver		4.7.4
 
 Summary:	K Desktop Environment - games
 Summary(es.UTF-8):	K Desktop Environment - Juegos
@@ -10,12 +10,12 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.7.0
-Release:	0.1
+Version:	4.7.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	fe27857410e79b3bd207c4dc4abc5709
+# Source0-md5:	ca9d63f2034a674e771ca4f9036308ec
 BuildRequires:	OpenAL-devel
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
@@ -729,9 +729,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libpala.so.?
 %attr(755,root,root) %{_libdir}/libpala.so.*.*.*
 %{_datadir}/apps/kdegames
-#%{_iconsdir}/hicolor/scalable/apps/knetwalk.svgz
-#%{_iconsdir}/oxygen/scalable/actions/lastmoves.svgz
-#%{_iconsdir}/oxygen/scalable/actions/legalmoves.svgz
+%{_iconsdir}/hicolor/scalable/apps/knetwalk.svgz
+%{_iconsdir}/oxygen/scalable/actions/lastmoves.svgz
+%{_iconsdir}/oxygen/scalable/actions/legalmoves.svgz
 
 %files devel
 %defattr(644,root,root,755)
@@ -807,6 +807,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/bomber
 %{_datadir}/config.kcfg/bomber.kcfg
 %{_iconsdir}/hicolor/*x*/apps/bomber.png
+%{_iconsdir}/hicolor/scalable/apps/bomber.svgz
 
 %files bovo -f bovo.lang
 %defattr(644,root,root,755)
@@ -814,6 +815,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/bovo.desktop
 %{_datadir}/apps/bovo
 %{_iconsdir}/hicolor/*x*/apps/bovo.png
+%{_iconsdir}/hicolor/scalable/apps/bovo.svgz
 
 %files kfourinline -f kfourinline.lang
 %defattr(644,root,root,755)
@@ -897,6 +899,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kmahjongglib
 %{_datadir}/config.kcfg/kmahjongg.kcfg
 %{_iconsdir}/*/*/apps/kmahjongg.png
+%{_iconsdir}/*/*/apps/kmahjongg.svgz
 
 %files kmines -f kmines.lang
 %defattr(644,root,root,755)
@@ -1027,7 +1030,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kdiamond
 %{_datadir}/config/kdiamond.knsrc
 %{_iconsdir}/*/*/apps/kdiamond.png
-#%{_iconsdir}/hicolor/scalable/apps/kdiamond.svgz
+%{_iconsdir}/hicolor/scalable/apps/kdiamond.svgz
 %{_datadir}/sounds/KDiamond-Stone-Drop.ogg
 %{_datadir}/sounds/KDiamond-Stone-Swap.ogg
 %{_datadir}/sounds/KDiamond-Stone-Touch.ogg
@@ -1038,7 +1041,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kollision.desktop
 %{_datadir}/apps/kollision
 %{_iconsdir}/*/*/apps/kollision.png
-#%{_iconsdir}/oxygen/scalable/apps/kollision.svgz
+%{_iconsdir}/oxygen/scalable/apps/kollision.svgz
 
 %files ksirk -f ksirk.lang
 %defattr(644,root,root,755)
@@ -1068,7 +1071,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kapman
 %{_datadir}/sounds/kapman
 %{_iconsdir}/*/*/apps/kapman.png
-#%{_iconsdir}/hicolor/scalable/apps/kapman.svgz
+%{_iconsdir}/hicolor/scalable/apps/kapman.svgz
 
 %files killbots -f killbots.lang
 %defattr(644,root,root,755)
@@ -1077,6 +1080,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/killbots.kcfg
 %{_datadir}/apps/killbots
 %{_iconsdir}/*/*/apps/killbots.png
+%{_iconsdir}/*/*/apps/killbots.svgz
 
 %files granatier -f granatier.lang
 %defattr(644,root,root,755)
@@ -1085,6 +1089,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/granatier.desktop
 %{_datadir}/config.kcfg/granatier.kcfg
 %{_iconsdir}/hicolor/*x*/apps/granatier.png
+%{_iconsdir}/hicolor/scalable/apps/granatier.svgz
 
 %files kigo -f kigo.lang
 %defattr(644,root,root,755)
@@ -1125,6 +1130,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kajongg
 %{_kdedocdir}/en/kajongg
 %{_iconsdir}/hicolor/*x*/apps/kajongg.png
+%{_iconsdir}/hicolor/scalable/apps/kajongg.svgz
+%{_iconsdir}/hicolor/scalable/actions/games-kajongg-law.svgz
 
 %files klickety -f klickety.lang
 %defattr(644,root,root,755)
