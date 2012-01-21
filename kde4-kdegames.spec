@@ -1,6 +1,6 @@
 %define		_state		stable
 %define		orgname		kdegames
-%define		qtver		4.7.4
+%define		qtver		4.8.0
 
 Summary:	K Desktop Environment - games
 Summary(es.UTF-8):	K Desktop Environment - Juegos
@@ -10,12 +10,12 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.7.3
+Version:	4.8.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	c2b9a052c7abb342a5d273a26e5dd933
+# Source0-md5:	20d3b5ead912bc8d6d326cdb305f1b90
 BuildRequires:	OpenAL-devel
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
@@ -939,6 +939,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/kpat.kcfg
 %{_datadir}/config/kcardtheme.knsrc
 %{_datadir}/config/kpat.knsrc
+%{_datadir}/mime/packages/kpatience.xml
 %{_iconsdir}/*/*/apps/kpat.png
 
 %files kreversi -f kreversi.lang
