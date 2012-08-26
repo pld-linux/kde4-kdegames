@@ -10,12 +10,12 @@ Summary(pl.UTF-8):	K Desktop Environment - gry
 Summary(pt_BR.UTF-8):	K Desktop Environment - Jogos
 Summary(zh_CN.UTF-8):	KDE游戏
 Name:		kde4-kdegames
-Version:	4.8.1
+Version:	4.9.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	450d31446cbf978d8f104a63ebeafdec
+# Source0-md5:	04f9507afd3be1b62f0a41fe3b8acd6a
 BuildRequires:	OpenAL-devel
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
@@ -28,6 +28,7 @@ BuildRequires:	python-PyKDE4 >= %{version}
 BuildRequires:	python-PyQt4-devel >= 4.7.7
 BuildRequires:	python-TwistedCore
 BuildRequires:	qca-devel >= 2.0.1
+BuildRequires:	qhull-devel
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.600
@@ -613,6 +614,7 @@ Granatier.
 Summary:	Kigo
 Group:		X11/Applications/Games
 Requires:	%{name} = %{version}-%{release}
+Suggests:	gnugo
 
 %description kigo
 Kigo.
