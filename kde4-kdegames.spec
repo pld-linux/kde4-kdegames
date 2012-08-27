@@ -716,12 +716,8 @@ rm -rf $RPM_BUILD_ROOT
 #%doc AUTHORS ChangeLog README README.highscore
 %attr(755,root,root) %{_libdir}/libkdegames.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libkdegames.so.?
-%attr(755,root,root) %ghost %{_libdir}/libkggzgames.so.?
-%attr(755,root,root) %{_libdir}/libkggzgames.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libkggzmod.so.?
-%attr(755,root,root) %{_libdir}/libkggzmod.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libkggznet.so.?
-%attr(755,root,root) %{_libdir}/libkggznet.so.*.*.*
+%attr(755,root,root) %{_libdir}/libkdegamesprivate.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkdegamesprivate.so.?
 %attr(755,root,root) %ghost %{_libdir}/libkmahjongglib.so.?
 %attr(755,root,root) %{_libdir}/libkmahjongglib.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libkolfprivate.so.?
@@ -730,56 +726,40 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libiris_ksirk.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libpala.so.?
 %attr(755,root,root) %{_libdir}/libpala.so.*.*.*
-%{_datadir}/apps/kdegames
 %{_iconsdir}/hicolor/scalable/apps/knetwalk.svgz
 %{_iconsdir}/oxygen/scalable/actions/lastmoves.svgz
 %{_iconsdir}/oxygen/scalable/actions/legalmoves.svgz
+%{_datadir}/apps/kconf_update/kgthemeprovider-migration.upd
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libkdegames.so
-%attr(755,root,root) %{_libdir}/libkggzmod.so
-%attr(755,root,root) %{_libdir}/libkggzgames.so
-%attr(755,root,root) %{_libdir}/libkggznet.so
+%attr(755,root,root) %{_libdir}/libkdegamesprivate.so
 %attr(755,root,root) %{_libdir}/libiris_ksirk.so
 %attr(755,root,root) %{_libdir}/libkolfprivate.so
 %attr(755,root,root) %{_libdir}/libpala.so
-%{_datadir}/apps/cmake/modules/FindLibKDEGames.cmake
-%{_datadir}/apps/cmake/modules/GGZ.cmake
+%{_libdir}/cmake/KDEGames
 %dir %{_libdir}/libpala
 %{_libdir}/libpala/*.cmake
 %{_includedir}/*.h
-%{_includedir}/digits
-%{_includedir}/kgame
+%{_includedir}/libkdegamesprivate
 %{_includedir}/highscore
-%{_includedir}/KDE/KCardDialog
-%{_includedir}/KDE/KChat
-%{_includedir}/KDE/KChatBase
-%{_includedir}/KDE/KChatDialog
+%{_includedir}/KDE/KgAudioScene
+%{_includedir}/KDE/KgDifficulty
+%{_includedir}/KDE/KgSound
+%{_includedir}/KDE/KgTheme
 %{_includedir}/KDE/KExtHighscore
-%{_includedir}/KDE/KGame
-%{_includedir}/KDE/KGameCanvas
+%{_includedir}/KDE/KgThemeProvider
 %{_includedir}/KDE/KGameClock
-%{_includedir}/KDE/KGameDifficulty
-%{_includedir}/KDE/KGameLCD
-%{_includedir}/KDE/KGameMisc
+%{_includedir}/KDE/KgThemeSelector
 %{_includedir}/KDE/KGamePopupItem
-%{_includedir}/KDE/KGameProgress
-%{_includedir}/KDE/KGameSvgDigits
-%{_includedir}/KDE/KGameSvgDocument
-%{_includedir}/KDE/KGameTheme
-%{_includedir}/KDE/KGameThemeSelector
 %{_includedir}/KDE/KGameRenderedItem
 %{_includedir}/KDE/KGameRenderedObjectItem
 %{_includedir}/KDE/KGameRenderer
 %{_includedir}/KDE/KGameRendererClient
-%{_includedir}/KDE/KGrid2D
 %{_includedir}/KDE/KHighscore
 %{_includedir}/KDE/KScoreDialog
 %{_includedir}/KDE/KStandardGameAction
-%{_includedir}/kggzgames
-%{_includedir}/kggzmod
-%{_includedir}/kggznet
 %{_includedir}/Pala
 %{_includedir}/libpala
 
