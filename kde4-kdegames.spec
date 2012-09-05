@@ -15,7 +15,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	04f9507afd3be1b62f0a41fe3b8acd6a
+# Source0-md5:	bac6ec72f0eb7737dfc089882c2e18c2
 BuildRequires:	OpenAL-devel
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
