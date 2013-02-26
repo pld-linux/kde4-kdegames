@@ -1,3 +1,49 @@
+# TODO:
+# Package split upstream into:
+#
+# bomber-4.10.0.tar.xz
+# bovo-4.10.0.tar.xz
+# granatier-4.10.0.tar.xz
+# kajongg-4.10.0.tar.xz
+# kapman-4.10.0.tar.xz
+# katomic-4.10.0.tar.xz
+# kblackbox-4.10.0.tar.xz
+# kblocks-4.10.0.tar.xz
+# kbounce-4.10.0.tar.xz
+# kbreakout-4.10.0.tar.xz
+# kdiamond-4.10.0.tar.xz
+# kfourinline-4.10.0.tar.xz
+# kgoldrunner-4.10.0.tar.xz
+# kigo-4.10.0.tar.xz
+# killbots-4.10.0.tar.xz
+# kiriki-4.10.0.tar.xz
+# kjumpingcube-4.10.0.tar.xz
+# klickety-4.10.0.tar.xz
+# klines-4.10.0.tar.xz
+# kmahjongg-4.10.0.tar.xz
+# kmines-4.10.0.tar.xz
+# knavalbattle-4.10.0.tar.xz
+# knetwalk-4.10.0.tar.xz
+# kolf-4.10.0.tar.xz
+# kollision-4.10.0.tar.xz
+# konquest-4.10.0.tar.xz
+# kpat-4.10.0.tar.xz
+# kreversi-4.10.0.tar.xz
+# kshisen-4.10.0.tar.xz
+# ksirk-4.10.0.tar.xz
+# ksnakeduel-4.10.0.tar.xz
+# kspaceduel-4.10.0.tar.xz
+# ksquares-4.10.0.tar.xz
+# ksudoku-4.10.0.tar.xz
+# ktuberling-4.10.0.tar.xz
+# kubrick-4.10.0.tar.xz
+# lskat-4.10.0.tar.xz
+# palapeli-4.10.0.tar.xz
+# picmi-4.10.0.tar.xz
+# 
+# libkdegames-4.10.0.tar.xz
+# libkmahjongg-4.10.0.tar.xz
+
 %define		_state		stable
 %define		orgname		kdegames
 %define		qtver		4.8.0
